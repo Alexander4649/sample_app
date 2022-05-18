@@ -1,2 +1,12 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>投稿一覧</h1>
+
+<%# @listsはcontrollerで記述したインスタンス変数
+    eachメソッドは配列やハッシュがもつ要素を順番に取得して処理を実行したい時に使用する。
+    @lists.each と記述することでListレコードの数だけ繰り返し処理を行う。さらに各レコード内容は、listという変数に格納される。
+    list.[カラム名]でレコードのカラムの内容を表示できる。　今回は投稿のタイトルが表示される。 #%>
+<%= @lists.each do |list| %> 
+
+<p>タイトル</p>
+<span><%= list.title %></span>
+
+<% end %>
