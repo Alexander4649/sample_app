@@ -1,6 +1,11 @@
 <h1>新規投稿</h1>
 
+
 <%= form_with model: @list do |f| %>
+<!--form_withを省略形ではなく厳密に記述すると以下になる。-->
+<!--エラー等が発生する場合もあるので、以下の記述も覚えておこう-->
+<!--コードに対してコメントアウトする時は「<%# #%>を使用すること」-->
+<%#<%= form_with model: @list,url:'/lists',methood: :post do |f| %>
  
  <h4>タイトル</h4>
  <%= f.text_field:title %>
