@@ -13,7 +13,7 @@ class ListsController < ApplicationController
     #3. 呼び出したModelインスタンスデータをデータベースに保存するためのsaveメゾット実行
     list.save
     #4. トップ画面へリダイレクト
-    redirect_to'/top'
+    redirect_to list_path(list.id)
   end
 
   def index # 一覧表示アクション、今回は一覧画面に投稿したList全てを表示させるので全データを取得する
