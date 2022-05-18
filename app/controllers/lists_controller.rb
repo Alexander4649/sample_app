@@ -18,7 +18,7 @@ class ListsController < ApplicationController
 
   def index # 一覧表示アクション、今回は一覧画面に投稿したList全てを表示させるので全データを取得する
    @lists = List.all # @listsはインスタンス変数、allはメソッドの一種で、listsテーブルに保存されている全データを取得する。
-                     # 取得したデータを@lists(インスタンス変数)に代入する
+                     # 取得したデータを@lists(インスタンス変数)に代入するという意味
   end
 
   def show
