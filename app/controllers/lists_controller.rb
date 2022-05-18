@@ -22,7 +22,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @lists = List.find(params[:id]) #findメソッドは引数を受取り、idカラムを引数と比べてレコード取得する。URL毎に取得するレコードを変えれる。
+    @list = List.find(params[:id]) #findメソッドは引数を受取り、idカラムを引数と比べてレコード取得する。URL毎に取得するレコードを変えれる。
   end
 
   def edit
