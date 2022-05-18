@@ -1,4 +1,5 @@
 2022/5/18 [start] sample.app
+[Add] 初期設定完了
 
 [Start]...開始
 [Finish]...終了
