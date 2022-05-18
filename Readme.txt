@@ -7,3 +7,5 @@
 [Remove]...削除
 [Fix]...不具合修正
 接続テスト
+appa
+appa
