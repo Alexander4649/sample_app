@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   
-  def new 
+  def new #新規投稿していく為のアクション
     #Viweへデータを渡す為のインスタンス変数に空のModelオブジェクトを生成する。
     @list = List.new
   end
@@ -16,7 +16,9 @@ class ListsController < ApplicationController
     redirect_to'/top'
   end
 
-  def index
+  def index # 一覧表示アクション、今回は一覧画面に投稿したList全てを表示させるので全データを取得する
+   @lists = List.all # @listsはインスタンス変数、allはメソッドの一種で、listsテーブルに保存されている全データを取得する。
+                     # 取得したデータを@lists(インスタンス変数)に代入する
   end
 
   def show
