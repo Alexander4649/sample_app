@@ -8,6 +8,7 @@ Rails.application.routes.draw do
                                   #詳細画面で呼び出される投稿データはURLの/lists/:idで判別します。 :idはアクション内にparams[:id]で取得。
                                   # as: オプションを追加することで'lists#show'の設定を'list'として利用するという
   get 'lists/:id/edit' => 'lists#edit',as: 'edit_list' #ルーティングのURLに:idを記述すると、lists/●●/editの全てのURLが対象になる。
-  patch 'lists/:id' => 'lists#update', as: 'update_list' #更新の場合のHTTPメソッドはPTACHで指定します。
+  patch 'lists/:id' => 'lists#update', as: 'update_list' #更新のHTTPメソッドはPTACHで指定します。 URLはlists/:id、名前付パスはupdate_list
+  delete 'lists/:id' => 'lists#destroy',as:'destroy_list' #削除機能のHTTPメソッドはdestroyで指定します。 URLはlists/:id、名前付パスはdestroy_list
 
 end
