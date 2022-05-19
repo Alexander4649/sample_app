@@ -26,6 +26,7 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:id]) #投稿済みのデータを編集するので保存されているデータを見つける為にfindメソッドを使用する。
   end
   
   #privateとは一種の境界線で「ここから下はこのcontrollerの中でしか呼び出せません」という意味がある。
