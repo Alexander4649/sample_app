@@ -11,7 +11,7 @@
   <%= image_tag 'no_image', size: "300x300" %>
 <% end %>
 
-<%= link_to "編集", edit_list_path(@list.id) %> <%# 編集画面へ遷移するリンクを設定 #%>
-<%= link_to "削除", destroy_list_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "編集", edit_list_path(@list.id) %>　<%# 編集画面へ遷移するリンクを設定 #%>
+<%= link_to "削除", list_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <%# destroyアクションのHTTPメソッドはDELETEを指定します。 #%>
 <%# 誤って「削除」をクリックしてしまった場合に備えて、data-confirmを用いて削除確認ダイアログも表示させる #%>

@@ -17,3 +17,9 @@
 <%= link_to"削除", destory_list_path(@list.id),methood: :delete,"data-confirm" => "本当に削除しますか？" %>
 <%# destroyアクションのHTTPメソッドはDELETEを指定します。 #%>
 <%# 誤って「削除」をクリックしてしまった場合に備えて、data-confirmを用いて削除確認ダイアログも表示させる #%>
+
+
+
+
+<%= form_with model: @list, url: update_list_path(@list.id), method: :patch do |f| %> 
+<%= link_to "編集", edit_list_path(@list.id) %> 
