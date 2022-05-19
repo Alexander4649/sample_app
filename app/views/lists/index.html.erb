@@ -1,15 +1,22 @@
 <h1>投稿一覧</h1>
-
+<% @lists.each do |list| %>
 <%# @listsはcontrollerで記述したインスタンス変数
     eachメソッドは配列やハッシュがもつ要素を順番に取得して処理を実行したい時に使用する。
     @lists.each と記述することでListレコードの数だけ繰り返し処理を行う。さらに各レコード内容は、listという変数に格納される。
-    list.[カラム名]でレコードのカラムの内容を表示できる。　今回は投稿のタイトルが表示される。 #%>
-<% @lists.each do |list| %> <%# eachを使用する時は「<%=」の「=」は不要です。 #%>
+    list.[カラム名]でレコードのカラムの内容を表示できる。　今回は投稿のタイトルが表示される。
+    eachを使用する時は「<%=」の「=」は不要です。 #%>
 
 <p>タイトル</p>
 <span>
-    <%= link_to list.title,list_path(list.id) %> <%#一覧画面から詳細画面へ転移するリンクを設定。今回はオプションは設定なし #%>
+    <%= link_to list.title,list_path(list.id) %> <%#一覧画面から詳細画面へ遷移するリンクを設定。今回はオプションは設定なし #%>
                                                  <%# <%= link_to 表示させるテキスト, リンク先URL[,オプション]%>　
 </span>
+
+<p>画像</p>                                  <%# HTMLのimgタグを生成するimage_tagヘルパーを使用し画像表示を行う。 #%>
+ <% if list.image.attached? %>               <%# list.imageに対して .attached?というimageが存在するかを確認するメソッドを呼び出している。 #%>
+  <%= image_tag list.image,size:"200×200" %> <%# attached? は画像が存在していればtrue、存在していなければfalseを返します。 #%>
+ <% else %>                                  <%# listに紐づいているimageをimage_tagに渡す事で画像表示ができる。#%>
+  <%= image_tag 'no_image',size:"200×200" %> <%# オプションとしてsizeを指定することで画像サイズを変更することが可能 #%>
+ <% end %>
 
 <% end %>

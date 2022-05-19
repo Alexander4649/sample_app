@@ -1,11 +1,9 @@
 <h1>新規投稿</h1>
 
 
-<%= form_with model: @list do |f| %>
-<!--form_withを省略形ではなく厳密に記述すると以下になる。-->
-<!--エラー等が発生する場合もあるので、以下の記述も覚えておこう-->
-<!--コードに対してコメントアウトする時は「<%# #%>を使用すること」-->
-<%#<%= form_with model: @list,url:'/lists',methood: :post do |f| %>
+<%= form_with model: @list do |f| %>  <!--form_withを省略形ではなく厳密に記述すると以下になる。-->
+                                      <!--エラー等が発生する場合もあるので、以下の記述も覚えておこう-->
+                                      <%#<%= form_with model: @list,url:'/lists',methood: :post do |f| %>
  
  <h4>タイトル</h4>
  <%= f.text_field:title %>
@@ -13,6 +11,9 @@
  <h4>本文</h4>
  <%= f.text_area:body %>
  
+ <h4>画像</h4>
+ <%= f.file_field :image, accept:"image/*" %> <%# file_fieldはファイル投稿する為のフィールドなので、画像ファイル以外の全てのファイルが投稿できてします。#%>
+                                             <%# その為今回は、accept: "image/*"を使い、画像ファイルしか投稿できないようにしている。 #%>
  <%= f.submit'投稿' %>
  
 <% end %>
