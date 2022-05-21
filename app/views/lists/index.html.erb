@@ -1,3 +1,23 @@
+<div class="list-wrap">
+<% @lists.each do |list| %>
+  <div class="list-box">
+    <% if list.image.attached? %>
+      <%= image_tag list.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+    <div class="list-comment">
+      <span class="list-body"><%= list.body %></span>
+      <span class="list-title"><%=link_to list.title, list_path(list.id) %></span>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
+
+
+<%#
 <h1>投稿一覧</h1>
 <% @lists.each do |list| %>
 <%# @listsはcontrollerで記述したインスタンス変数
@@ -6,17 +26,19 @@
     list.[カラム名]でレコードのカラムの内容を表示できる。　今回は投稿のタイトルが表示される。
     eachを使用する時は「<%=」の「=」は不要です。 #%>
 
+<%#
 <p>タイトル</p>
 <span>
     <%= link_to list.title,list_path(list.id) %> <%#一覧画面から詳細画面へ遷移するリンクを設定。今回はオプションは設定なし #%>
                                                  <%# <%= link_to 表示させるテキスト, リンク先URL[,オプション]%>　
+<%#
 </span>
 
-<p>画像</p>                                  <%# HTMLのimgタグを生成するimage_tagヘルパーを使用し画像表示を行う。 #%>
- <% if list.image.attached? %>               <%# list.imageに対して .attached?というimageが存在するかを確認するメソッドを呼び出している。 #%>
-  <%= image_tag list.image,size:"200×200" %> <%# attached? は画像が存在していればtrue、存在していなければfalseを返します。 #%>
- <% else %>                                  <%# listに紐づいているimageをimage_tagに渡す事で画像表示ができる。#%>
-  <%= image_tag 'no_image',size:"200×200" %> <%# オプションとしてsizeを指定することで画像サイズを変更することが可能 #%>
- <% end %>
+<p>画像</p> #%>                              <%# HTMLのimgタグを生成するimage_tagヘルパーを使用し画像表示を行う。 #%>
+<%# <% if list.image.attached? %>               <%# list.imageに対して .attached?というimageが存在するかを確認するメソッドを呼び出している。 #%>
+<%#  <%= image_tag list.image,size:"200×200" %> <%# attached? は画像が存在していればtrue、存在していなければfalseを返します。 #%>
+<%# <% else %>                                  <%# listに紐づいているimageをimage_tagに渡す事で画像表示ができる。#%>
+<%#  <%= image_tag 'no_image',size:"200×200" %> <%# オプションとしてsizeを指定することで画像サイズを変更することが可能 #%>
+<%# <% end %>
 
-<% end %>
+<%# <% end %> 
