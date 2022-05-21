@@ -1,5 +1,12 @@
 <h1>新規投稿</h1>
-
+<% if @list.errors.any? %> <%# errorsはモデルにバリデーションをかけた時に、発生したエラー内容を確認できるメソッド #%>
+ <%= @list.errors.count %>件のエラーが発生しました <%# any?と組み合わせる事で、エラー発生しているかどうかを判定できます。 #%>
+ <ul>
+   <% @list.errors.full_messages.each do |message| %> <%# full_messageと組み合わせる事で、エラーの内容を出力でき、エラー文は配列で保存されている為、eachを使う #%>
+   <li><%= message %></li>
+   <% end %>
+ </ul>
+ <% end %>
 
 <%= form_with model: @list do |f| %>  <!--form_withを省略形ではなく厳密に記述すると以下になる。-->
                                       <!--エラー等が発生する場合もあるので、以下の記述も覚えておこう-->
