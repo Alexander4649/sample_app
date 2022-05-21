@@ -5,11 +5,14 @@ class ListsController < ApplicationController
   end
   
   def create
-    list = List.new(list_params)   #1.&2. データを受け取り新規登録をするためのインスタンス作成
+    @list = List.new(list_params)   #1.&2. データを受け取り新規登録をするためのインスタンス作成
                                    # list変数にはList(Model)のメソッドであるnewメソッドが呼び出され、引数list_paramsが呼び出される。
                                    # 保存機能の為、ローカル変数を利用している。
-    list.save                      #3. 呼び出したModelインスタンスデータをデータベースに保存するためのsaveメゾット実行
-    redirect_to list_path(list.id) #4. トップ画面へリダイレクト
+  if @list.save                      #3. 呼び出したModelインスタンスデータをデータベースに保存するためのsaveメゾット実行
+    redirect_to list_path(@list.id) #4. トップ画面へリダイレクト
+  else
+    render :new    # reder: アクション名で、同じコントローラ内の別のアクションのviewを表示できる
+  end
   end
 
   def index # 一覧表示アクション、今回は一覧画面に投稿したList全てを表示させるので全データを取得する
